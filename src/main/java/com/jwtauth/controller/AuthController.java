@@ -23,6 +23,8 @@ import com.jwtauth.repository.UserRepository;
 import com.jwtauth.service.CustomerDetailsService;
 import com.jwtauth.service.JwtUtil;
 
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -38,9 +40,9 @@ public class AuthController {
 	private UserRepository urepo;
 
 	@GetMapping(path = "/health")
-	public ResponseEntity<String> healthCheckup() {
-		log.info("AWS Health Checking");
-		return new ResponseEntity<>("", HttpStatus.OK); 
+	public @ResponseBody String healthCheckup() {
+		
+		return "Working Fine";
 	}
 
 	@PostMapping(value = "/login")
